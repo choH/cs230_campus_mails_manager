@@ -1,1 +1,39 @@
+<Input>
+  BoxLayout:
+    orientation: 'vertical'
+    cols: 2
+    id: box_layout
+    TextInput:
+      id: tracking_number
+      text: ''
+      hint_text: 'Tracking Number'
+    TextInput:
+      id: student_name
+      text: ''
+      hint_text: 'Student Name'
+    TextInput:
+      id: date_received
+      text: ''
+      hint_text: 'Date Received'
+    TextInput:
+      id: carrier_id
+      text: ''
+      hint_text: 'Carrier Name'
+    TextInput:
+      id: bin_number
+      text: ''
+      hint_text: 'Bin Number'
+    TextInput:
+      id: description
+      text: ''
+      hint_text: 'Item Description'
+    TextInput:
+      id: staff_id
+      text: ''
+      hint_text: 'Staff ID'
+    Button:
+      id: submit_button
+      text: 'Submit'
+      on_touch_down: root.submission_func()
+
 
