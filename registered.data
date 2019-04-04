@@ -1,1 +1,35 @@
+[
+    {
+    "tracking_num": 1485,
+    "recipient": "Henry Zhong",
+    "box_num": 2333,
 
+    "registered_staff": "guy_1",
+    "delivered_time": "2019-03-28 12:00:00",
+    "bin_num": 13,
+    "note": "black envelope",
+
+    "is_redeemed": true,
+    "redeemed_staff": "guy_2",
+    "redeemed_time": "2019-03-29 13:00:00",
+
+    "service": "USPOSTAL"
+    },
+    
+    {
+    "tracking_num": 1234,
+    "recipient": "Harry Dunham",
+    "box_num": 3333,
+
+    "registered_staff": "guy_1",
+    "delivered_time": "2019-03-30 12:00:00",
+    "bin_num": 13,
+    "note": "None",
+
+    "is_redeemed": true,
+    "redeemed_staff": "guy_2",
+    "redeemed_time": "2019-03-31 13:00:00",
+
+    "service": "UPS"
+    }
+]
