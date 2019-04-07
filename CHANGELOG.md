@@ -11,7 +11,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 
 ### 2019-04-07 | A short style guide for updating this `CHANGELOG.md`.
 * The `CHANGELOG.md` has three sections.
-    * **Broadcasts**: Briefing of upcoming events or reminders (like this on).
+    * **Broadcasts**: Briefing of upcoming events or reminders (like this one).
     * **Scrum Meetings**: Summaries for scrum meetings.
     * **Development Journal**: Records for development updates.
 * For the sake of consistency, I suggest we update this `CHANGELOG.md` in a date descending order (new-to-old) with a format of `YYYY-MM-DD`.
@@ -56,12 +56,12 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 ---
 ## Development Journal
 
-### 2019-4-7, Henry Zhong:
+### 2019-04-07, Henry Zhong:
 
 * **Demo Layout Implemented.**
     * Implemented a demo layout for search bar, filter buttons/spinners, and dynamically-added widgets within scrollview.
 
-### 2019-4-6, Harry Dunham:
+### 2019-04-06, Harry Dunham:
 
 * **Abstract Implementation of the Input Screen.** 
     * This includes basic text inputs and a non-functioning submit button (inputs include: tracking number, current date, bin number, etc.) 
