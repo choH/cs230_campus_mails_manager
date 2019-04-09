@@ -6,9 +6,10 @@
             orientation: 'vertical'
             id: status_box
             size_hint_y: 1
-            Button:
+            ProgressBar:
                 id: status
-                text: 'Status'
+                value: 0
+                max: 100
 
         BoxLayout:
             orientation: 'vertical'
@@ -19,15 +20,15 @@
                 size_hint_y: 5
                 orientation: 'vertical'
                 TextInput:
-                    id: tracking_number
+                    id: tracking_num
                     text: ''
                     hint_text: 'Tracking Number'
                 TextInput:
-                    id: student_name
+                    id: recipient
                     text: ''
                     hint_text: 'Student Name'
                 TextInput:
-                    id: description
+                    id: note
                     text: ''
                     hint_text: 'Item Description'
             BoxLayout:
@@ -48,11 +49,11 @@
                     orientation: 'vertical'
                     id: 'right box'
                     TextInput:
-                        id: staff_id
+                        id: registered_staff
                         text: ''
                         hint_text: 'Staff ID'
                     TextInput:
-                        id: date_received
+                        id: delivered_time
                         text: ''
                         hint_text: 'Date Received'
             BoxLayout:

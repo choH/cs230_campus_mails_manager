@@ -56,6 +56,17 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 ---
 ## Development Journal
 
+### 2019-04-09, Harry Dunham:
+* **JSON Read/Write and Popups.**
+    * Implementation of the JSON file reader/writer and an actual submission button function.
+    * Additionally, the status button was replaced by a progressbar, it is a mockup of the application should it ever have an actual website backend and server support.
+    * A basic popup system was added for failing to fill out specific text fields.
+
+### 2019-04-08, Harry Dunham:
+* **Mail Carrier Implementation.**
+    * Fixed the carrier implementation so that whenever one carrier is selected all the other carriers are deselected. 
+    * Additionally if the user selects the currently selected carrier it will deselect that carrier.
+
 ### 2019-04-07, Henry Zhong:
 
 * **Demo Layout Implemented.**
