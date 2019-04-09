@@ -1,1 +1,85 @@
+ScreenManager:
+    LogScreen:
+
+<LogScreen>
+    name: 'log_screen'
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size_hint
+        pos: root.pos
+
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+
+            TextInput:
+                size_hint_x: 8
+                id: search_input
+                hint_text: 'Enter search content...'
+
+            Button:
+                size_hint_x: 1
+                id: search_submit
+                text: 'Submit'
+
+
+        GridLayout:
+            size_hint_y: 2
+            cols: 4
+            rows: 2
+
+            Button:
+                id: filter_tracking_num
+                text: 'Tracking #'
+
+            Button:
+                id: filter_recipient
+                text: 'Recipient'
+
+            Spinner:
+                id: filter_service
+                text: 'Service'
+                values: ('UPS', 'DHL', 'FEDEX', 'USPOSTAL', 'CAMPUS')
+
+            Spinner:
+                id: filter_is_redeemed
+                text: 'Redeemed Status'
+                values: ('Redeemed', 'Unredeemed')
+
+
+            Button:
+                id: filter_registered_date
+                text: 'Registered Date'
+
+            Button:
+                id: filter_redeemed_date
+                text: 'Redeemed Date'
+
+            Button:
+                id: filter_registered_staff
+                text: 'Registered Staff'
+
+            Button:
+                id: filter_redeemed_staff
+                text: 'Redeemed Staff'
+
+
+
+        ScrollView:
+            size_hint_y: 20
+            id: entry_scroll
+
+            GridLayout:
+                id: entry_layout
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: 60
+                cols:1
+
+
+
+
+
 
