@@ -6,7 +6,6 @@ from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from kivy.config import Config
-import time
 from datetime import datetime
 # datetime.utcnow()
 # Config.set('graphics', 'width', '323')
