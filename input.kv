@@ -9,8 +9,7 @@
             ProgressBar:
                 id: status
                 value: 0
-                max: 100
-
+                max: 100000000
         BoxLayout:
             orientation: 'vertical'
             cols: 2
@@ -60,26 +59,26 @@
                 id: carriers
                 size_hint_y: 1
                 orientation: 'horizontal'
-                Button:
+                ToggleButton:
                     id: USPS
                     text: 'USPS'
-                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(1)
-                Button:
+                    group: 'carriers'
+                ToggleButton:
                     id: Fedex
                     text: 'FedEx'
-                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(2)
-                Button:
+                    group: 'carriers'
+                ToggleButton:
                     id: UPS
                     text: 'UPS'
-                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(3)
-                Button:
+                    group: 'carriers'
+                ToggleButton:
                     id: DHL
                     text: 'DHL'
-                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(4)
-                Button:
+                    group: 'carriers'
+                ToggleButton:
                     id: Other
                     text: 'Other'
-                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(5)
+                    group: 'carriers'
 
 
         BoxLayout:
