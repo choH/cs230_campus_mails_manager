@@ -70,6 +70,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 ## Development Journal
 
 
+
 ### 2019-04-10, Henry Zhong:
 **`LogScreen` is now fully functional**
 * **JSON Interaction Implemented**
@@ -92,6 +93,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 * **Screen Jump Feature Experimented**
     * Made two mimic screens for `InputScreen` and `DetailsScreen`, able to jump over three screen with intuitive transition directions.
     * Migrated codes from `log.py` and `log.kv` to `manager.py` and `manager.kv` for the seek of cross screen interaction.
+
 
 ### 2019-04-09, Harry Dunham:
 * **JSON Read/Write and Popups.**
