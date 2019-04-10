@@ -1,7 +1,95 @@
 ScreenManager:
+    id: screen_manager
+
+    InputScreen:
+        id: input_screen
+        name: 'input_screen'
+        manager: 'screen_manager'
+
+
     LogScreen:
+        id: log_screen
+        name: 'log_screen'
+        manager: 'screen_manager'
+
+    DetailsScreen:
+        id: details_screen
+        name: 'details_screen'
+        manager: 'screen_manager'
+
+
+<InputScreen>
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            size_hint_y: 24
+            text: 'This is InputScreen'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_input
+                text: 'Input'
+                on_release:
+                    app.root.current = 'input_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_log
+                text: 'Log'
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'log_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_details
+                text: 'Details'
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'details_screen'
+
+
+<DetailsScreen>
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            size_hint_y: 24
+            text: 'This is DetailsScreen'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_input
+                text: 'Input'
+                on_release:
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'input_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_log
+                text: 'Log'
+                on_release:
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'log_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_details
+                text: 'Details'
+                on_release: app.root.current = 'details_screen'
 
 <LogScreen>
+    id: current_log_screen
     name: 'log_screen'
     BoxLayout:
         orientation: 'vertical'
@@ -13,15 +101,28 @@ ScreenManager:
             orientation: 'horizontal'
             size_hint_y: 1
 
+            Button:
+                size_hint_x: 1
+                id: search_reset
+                text: 'Reset'
+                on_release:
+                    root.reset()
+
             TextInput:
                 size_hint_x: 8
                 id: search_input
-                hint_text: 'Enter search content...'
+                hint_text: 'Search all entries...'
 
             Button:
-                size_hint_x: 1
+                size_hint_x: 2
                 id: search_submit
                 text: 'Submit'
+                search_scope: False
+                on_release:
+                    root.submit()
+                    root.ids.search_input.text = ''
+
+
 
 
         GridLayout:
@@ -29,42 +130,51 @@ ScreenManager:
             cols: 4
             rows: 2
 
-            Button:
+            ToggleButton:
                 id: filter_tracking_num
                 text: 'Tracking #'
+                on_release: root.filter_trigger('filter_tracking_num')
 
-            Button:
+            ToggleButton:
                 id: filter_recipient
                 text: 'Recipient'
+                on_release: root.filter_trigger('filter_recipient')
 
-            Spinner:
-                id: filter_service
-                text: 'Service'
-                values: ('UPS', 'DHL', 'FEDEX', 'USPOSTAL', 'CAMPUS')
+            ToggleButton:
+                id: filter_carrier
+                text: 'Carrier'
+                on_release: root.filter_trigger('filter_carrier')
 
-            Spinner:
-                id: filter_is_redeemed
-                text: 'Redeemed Status'
-                values: ('Redeemed', 'Unredeemed')
+            ToggleButton:
+                id: filter_redeemed_status
+                text: 'Redeem Status'
+                on_release: root.filter_trigger('filter_redeemed_status')
 
 
-            Button:
-                id: filter_registered_date
+            ToggleButton:
+                id: filter_registered_time
                 text: 'Registered Date'
+                on_release: root.filter_trigger('filter_registered_time')
 
-            Button:
-                id: filter_redeemed_date
+            ToggleButton:
+                id: filter_redeemed_time
                 text: 'Redeemed Date'
+                on_release: root.filter_trigger('filter_redeemed_time')
 
-            Button:
+
+            ToggleButton:
                 id: filter_registered_staff
                 text: 'Registered Staff'
+                on_release: root.filter_trigger('filter_registered_staff')
 
-            Button:
+            ToggleButton:
                 id: filter_redeemed_staff
                 text: 'Redeemed Staff'
+                on_release: root.filter_trigger('filter_redeemed_staff')
 
-
+        Label:
+            id: entry_title_label
+            text: '    Tracking #    |      Recipient     |    Registered Date    |     Redeem Status '
 
         ScrollView:
             size_hint_y: 20
@@ -75,9 +185,35 @@ ScreenManager:
                 orientation: "vertical"
                 size_hint_y: None
                 height: self.minimum_height
-                row_default_height: 60
+                row_default_height: 80
                 cols:1
 
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_input
+                text: 'Input'
+                on_release:
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'input_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_log
+                text: 'Log'
+                on_release: app.root.current = 'log_screen'
+
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_details
+                text: 'Details'
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'details_screen'
 
 
 
