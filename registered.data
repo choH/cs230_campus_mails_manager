@@ -1,35 +1,52 @@
 [
     {
-    "tracking_num": 1485,
+    "tracking_num": "1485",
     "recipient": "Henry Zhong",
-    "box_num": 2333,
+    "box_num": "2333",
 
     "registered_staff": "guy_1",
-    "delivered_time": "2019-03-28 12:00:00",
-    "bin_num": 13,
+    "registered_time": "2019-02-28 12:00:00",
+    "bin_num": "13",
     "note": "black envelope",
 
-    "is_redeemed": true,
-    "redeemed_staff": "guy_2",
+    "redeemed_status": "Redeemed",
+    "redeemed_staff": "guy_1",
     "redeemed_time": "2019-03-29 13:00:00",
 
-    "service": "USPOSTAL"
+    "carrier": "USPOSTAL"
     },
-    
-    {
-    "tracking_num": 1234,
-    "recipient": "Harry Dunham",
-    "box_num": 3333,
 
-    "registered_staff": "guy_1",
-    "delivered_time": "2019-03-30 12:00:00",
-    "bin_num": 13,
+    {
+    "tracking_num": "1234",
+    "recipient": "Harry Dunham",
+    "box_num": "3333",
+
+    "registered_staff": "guy_3",
+    "registered_time": "2019-02-28 12:00:01",
+    "bin_num": "13",
     "note": "None",
 
-    "is_redeemed": true,
+    "redeemed_status": "Redeemed",
     "redeemed_staff": "guy_2",
     "redeemed_time": "2019-03-31 13:00:00",
 
-    "service": "UPS"
-    }
+    "carrier": "UPS"
+    },
+
+    {
+   "tracking_num": "2468",
+   "recipient": "Nathan Devereux",
+   "box_num": "5555",
+
+   "registered_staff": "guy_3",
+   "registered_time": "2019-04-01 12:00:00",
+   "bin_num": "13",
+   "note": "None",
+
+   "redeemed_status": "Unredeemed",
+   "redeemed_staff": false,
+   "redeemed_time": false,
+
+   "carrier": "UPS"
+   }
 ]

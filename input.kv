@@ -1,39 +1,95 @@
-<Input>
-  BoxLayout:
-    orientation: 'vertical'
-    cols: 2
-    id: box_layout
-    TextInput:
-      id: tracking_number
-      text: ''
-      hint_text: 'Tracking Number'
-    TextInput:
-      id: student_name
-      text: ''
-      hint_text: 'Student Name'
-    TextInput:
-      id: date_received
-      text: ''
-      hint_text: 'Date Received'
-    TextInput:
-      id: carrier_id
-      text: ''
-      hint_text: 'Carrier Name'
-    TextInput:
-      id: bin_number
-      text: ''
-      hint_text: 'Bin Number'
-    TextInput:
-      id: description
-      text: ''
-      hint_text: 'Item Description'
-    TextInput:
-      id: staff_id
-      text: ''
-      hint_text: 'Staff ID'
-    Button:
-      id: submit_button
-      text: 'Submit'
-      on_touch_down: root.submission_func()
+<Input>:
+    GridLayout:
+        rows: 3
+        id: screen
+        BoxLayout:
+            orientation: 'vertical'
+            id: status_box
+            size_hint_y: 1
+            ProgressBar:
+                id: status
+                value: 0
+                max: 100
+
+        BoxLayout:
+            orientation: 'vertical'
+            cols: 2
+            id: text_box
+            size_hint_y: 18
+            BoxLayout:
+                size_hint_y: 5
+                orientation: 'vertical'
+                TextInput:
+                    id: tracking_num
+                    text: ''
+                    hint_text: 'Tracking Number'
+                TextInput:
+                    id: recipient
+                    text: ''
+                    hint_text: 'Student Name'
+                TextInput:
+                    id: note
+                    text: ''
+                    hint_text: 'Item Description'
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 2
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: 'left box'
+                    TextInput:
+                        id: bin_number
+                        text: ''
+                        hint_text: 'Bin Number'
+                    TextInput:
+                        id: box_number
+                        text: ''
+                        hint_text: 'Student Box Number'
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: 'right box'
+                    TextInput:
+                        id: registered_staff
+                        text: ''
+                        hint_text: 'Staff ID'
+                    TextInput:
+                        id: delivered_time
+                        text: ''
+                        hint_text: 'Date Received'
+            BoxLayout:
+                id: carriers
+                size_hint_y: 1
+                orientation: 'horizontal'
+                Button:
+                    id: USPS
+                    text: 'USPS'
+                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(1)
+                Button:
+                    id: Fedex
+                    text: 'FedEx'
+                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(2)
+                Button:
+                    id: UPS
+                    text: 'UPS'
+                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(3)
+                Button:
+                    id: DHL
+                    text: 'DHL'
+                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(4)
+                Button:
+                    id: Other
+                    text: 'Other'
+                    on_touch_down: if self.collide_point(*args[1].pos): root.carrier_func(5)
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            id: submit_box
+            size_hint_y: 2
+
+            Button:
+                id: submit_button
+                text: 'Submit'
+                on_touch_down: if self.collide_point(*args[1].pos): root.submission_func()
 
 
