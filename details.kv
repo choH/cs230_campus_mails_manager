@@ -1,0 +1,40 @@
+ScreenManager:
+    id: screen_manager
+    DetailsScreen:
+        id: details_screen
+        name: 'menu'
+        manager: 'screen_manager'
+
+<DetailsScreen>:
+
+    GridLayout:
+        cols: 1
+        ScrollView:
+            size_hint_y: 12
+            Label:
+                id: output
+                size_hint_y: None
+                text_size: self.width, None
+                height: self.texture_size[1]
+        Spinner:
+            id: spin
+            text: 'Select what to edit'
+            size_hint_x: 1
+            values: ('Tracking Number', 'Recipient', 'Box Number', 'Registered Staff','Delivered Time', 'Bin Number', 'Note', 'Redeemed Staff', 'Redeemed Time', 'Service')
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 3
+            TextInput:
+                id: edit
+                size_hint_x: 4
+                hint_text: 'Type new information'
+            Button:
+                id: submit
+                size_hint_x: 1
+                text: 'Submit Changes'
+                on_release: root.process_submit()
+        Button:
+            id: redeem
+            text: 'Redeem Package'
+            on_release: root.process_redeem()
+
