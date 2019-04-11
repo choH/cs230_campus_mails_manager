@@ -9,7 +9,7 @@ A proper `README.md` file will be written once the program is fully developed. D
 ## Purpose of This Project
 The purpose of this project is to digitalize College of Wooster's mailing — mostly regarding delivery archiving, notifying, and redeeming aspects — workflow. 
 
-In shorts, rather than having the mailing room staffs manually sort the deliveries, fill out the blue slip, put it in your mail box, have you to go and redeem it, then keep the redeemed blue slip for another month... We aim to design an app for these mailing room staff so that they can input information digitally (even though a scan), the recipient shall automatically sent notification email, and you can present such email to redeem your package.
+In shorts, rather than having the mailing room staffs manually sort the deliveries, fill out the blue slip, put it in your mail box, have you to go and redeem it, then keep the redeemed blue slip for another month... We aim to design an app for these mailing room staff so that they can input information digitally (even though a scan), the recipient shall automatically sent notification email, and you can present such email to redeem your package.
 
 ## UI Showcase & User Manual.
 
