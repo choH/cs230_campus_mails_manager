@@ -13,6 +13,8 @@ In shorts, rather than having the mailing room staffs manually sort the deliveri
 
 ## UI Showcase & User Manual.
 
+[UI Demo](https://github.com/cs230s19/campus_mails_manager/blob/master/ui_demo.png)
+
 * **Input Screen**
     * This screen is the default screen of the application, so the staff may quickly access it and input information regarding the just arrived package.
 
