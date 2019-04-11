@@ -117,5 +117,5 @@ Everyone are expected to have a screen with fully functional UI and be able to i
     * This includes basic text inputs and a non-functioning submit button (inputs include: tracking number, current date, bin number, etc.) 
     * This is meant to get a visual understanding of what the input screen should look like.
 ### 2019-04-10
-* **Fully implemented Details Screen
+* **Fully implemented Details Screen.**
    *Added a button in the Log Screen that calls the function to get the details of a specific package       
