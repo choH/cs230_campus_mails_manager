@@ -86,7 +86,9 @@ ScreenManager:
                 size_hint_x: 1
                 id: bottom_to_details
                 text: 'Details'
-                on_release: app.root.current = 'details_screen'
+                on_release:
+                    app.root.current = 'details_screen'
+                    root.update_label('2468')
 
 <LogScreen>
     id: current_log_screen

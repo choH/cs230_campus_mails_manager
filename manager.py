@@ -13,8 +13,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.spinner import Spinner
 from kivy.clock import mainthread
-from kivy.uix.screenmanager import Screen
-
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.properties import ObjectProperty
 import json, requests
 
 
@@ -94,20 +94,13 @@ def filter_format_LUT(filter_id_str):
     return filter_format_LUT[filter_id_str]
 
 
-class InputScreen(Screen):
-    pass
-
-class DetailsScreen(Screen):
-    pass
 
 class LogScreen(Screen):
 
-    # search_dict = {}
 
     def __int__(self, **kwargs):
         super(LogScreen, self).__init__(**kwargs)
         # self.triggered_filter_str = ''
-
 
 
     def filter_trigger(self, filter_id_str):
@@ -171,8 +164,28 @@ class LogScreen(Screen):
                 button.state = 'normal'
         self.on_enter(1)
 
+    def entry_to_detail_str(self, entry):
+        output_str = ''
+        for k, v in entry.items():
+            if k == 'tracking_num':
+                continue
+            output_str += k + ': \n' + '                        ' + str(v) + '\n\n'
+        return output_str
+
+
     def to_details(self, instance):
         print('Proceed to the details page of #{}'.format(instance.text[12:16]))
+        entry_holder = False
+        for entry in get_next_entry():
+            if entry['tracking_num'] == instance.text[12:16]:
+                entry_holder = entry
+                break
+        output_str = 'Tracking #'+instance.text[12:16] + '\n\n\n\n' + self.entry_to_detail_str(entry)
+        self.ids.details_trigger_button.hinding_text = output_str.center(25)
+        self.ids.details_trigger_button.text = 'View #'+instance.text[12:16]+' in Details'
+
+
+
 
 
 
@@ -181,14 +194,17 @@ class LogScreen(Screen):
         self.ids.entry_layout.clear_widgets()
         for entry_str in entry_to_display(mode):
             a_button = Button(text = entry_str)
-            # a_spinner = Spinner(text=entry_str,
-            #                     values = ('Edit #'+entry_str[12:16], 'Delete #'+entry_str[12:16]),
-            #                     sync_height = True)
-            # self.ids.entry_layout.add_widget(a_spinner)
             a_button.bind(on_release = self.to_details)
             self.ids.entry_layout.add_widget(a_button)
 
 
+
+class InputScreen(Screen):
+    def on_enter(instance):
+        print("entered input screen")
+
+class DetailsScreen(Screen):
+    pass
 
 
 class managerApp(App):

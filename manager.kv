@@ -23,6 +23,7 @@ ScreenManager:
         orientation: 'vertical'
 
         Label:
+            id: input_screen_label
             size_hint_y: 24
             text: 'This is InputScreen'
 
@@ -54,39 +55,8 @@ ScreenManager:
                     app.root.current = 'details_screen'
 
 
-<DetailsScreen>
-    BoxLayout:
-        orientation: 'vertical'
 
-        Label:
-            size_hint_y: 24
-            text: 'This is DetailsScreen'
 
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint_y: 1
-
-            Button:
-                size_hint_x: 1
-                id: bottom_to_input
-                text: 'Input'
-                on_release:
-                    app.root.transition.direction = 'right'
-                    app.root.current = 'input_screen'
-
-            Button:
-                size_hint_x: 1
-                id: bottom_to_log
-                text: 'Log'
-                on_release:
-                    app.root.transition.direction = 'right'
-                    app.root.current = 'log_screen'
-
-            Button:
-                size_hint_x: 1
-                id: bottom_to_details
-                text: 'Details'
-                on_release: app.root.current = 'details_screen'
 
 <LogScreen>
     id: current_log_screen
@@ -188,6 +158,16 @@ ScreenManager:
                 row_default_height: 80
                 cols:1
 
+        Button:
+            size_hint_x: 1
+            id: details_trigger_button
+            text: 'Details Container'
+            hinding_text: 'Please select an entry in the LogScreen'
+            on_release:
+                app.root.get_screen('details_screen').ids.details_label.text = root.ids.details_trigger_button.hinding_text
+                app.root.transition.direction = 'left'
+                app.root.current = 'details_screen'
+
         BoxLayout:
             orientation: 'horizontal'
             size_hint_y: 1
@@ -216,6 +196,40 @@ ScreenManager:
                     app.root.current = 'details_screen'
 
 
+<DetailsScreen>
+    BoxLayout:
+        orientation: 'vertical'
 
+        Label:
+            size_hint_y: 24
+            id: details_label
+            text: 'This is DetailsScreen'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_input
+                text: 'Input'
+                on_release:
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'input_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_log
+                text: 'Log'
+                on_release:
+                    app.root.transition.direction = 'right'
+                    app.root.current = 'log_screen'
+
+            Button:
+                size_hint_x: 1
+                id: bottom_to_details
+                text: 'Details'
+                on_release:
+                    app.root.current = 'details_screen'
 
 
