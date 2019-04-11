@@ -12,7 +12,7 @@ from datetime import datetime
 # Config.set('graphics', 'height', '700')
 
 
-class Input(Screen):
+class InputScreen(Screen):
     def submission_func(self):
         self.ids.status.value = 0
         selected_carrier = ''

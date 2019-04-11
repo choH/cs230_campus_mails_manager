@@ -1,2 +1,52 @@
-[{"service": "FedEx", "redeemed_time": "false", "bin_number": "13", "note": "Letter", "delivered_time": "4/9/2019", "registered_staff": "tim", "tracking_num": "489704326859", "box_number": "1430", "recipient": "Harry Dunham", "is_redeemed": "false"}, {"service": "FedEx", "redeemed_time": "false", "is_redeemed": "false", "note": "Letter", "delivered_time": "4/9/2019", "registered_staff": "tim", "tracking_num": "164769830950", "box_number": "1430", "recipient": "Harry Dunham", "bin_number": "12"}, {"service": "FedEx", "redeemed_time": "false", "bin_number": "01", "note": "Big Box", "delivered_time": "4/9/2019", "registered_staff": "john", "tracking_num": "098764455231", "box_number": "2240", "recipient": "Eli Culley", "is_redeemed": "false"}, {"service": "DHL", "redeemed_time": "false", "is_redeemed": "false", "note": "", "delivered_time": "", "registered_staff": "", "tracking_num": "", "box_number": "", "recipient": "", "bin_number": ""}, {"service": "FedEx", "redeemed_time": "false", "bin_number": "13", "note": "Letter", "delivered_time": "4/10/2019", "registered_staff": "tim", "tracking_num": "0751482930", "box_number": "1430", "recipient": "Harry Dunham", "is_redeemed": "false"}, {"service": "UPS", "redeemed_time": "false", "is_redeemed": "false", "note": "Letter", "delivered_time": "4/10/2019", "registered_staff": "johhhny", "tracking_num": "12377898765", "box_number": "1430", "recipient": "Harry Dunham", "bin_number": "33"}, {"service": "FedEx", "redeemed_time": "false", "bin_number": "10", "note": "Letter", "delivered_time": "4/10/2019", "registered_staff": "johhnhy", "tracking_num": "678903334", "box_number": "1430", "recipient": "Harry Dunham", "is_redeemed": "false"}, {"service": "DHL", "redeemed_time": "false", "is_redeemed": "false", "note": "just work", "delivered_time": "1", "registered_staff": "1", "tracking_num": "89877316236123", "box_number": "1", "recipient": "Harry DUnham", "bin_number": "1"}, {"service": "UPS", "redeemed_time": "false", "bin_number": "1", "note": "1", "delivered_time": "1", "registered_staff": "1", "tracking_num": "1", "box_number": "1", "recipient": "1", "is_redeemed": "false"}, {"service": "UPS", "redeemed_time": "false", "is_redeemed": "false", "note": "3", "delivered_time": "7", "registered_staff": "5", "tracking_num": "1", "box_number": "6", "recipient": "2", "bin_number": "4"}, {"service": "Other", "redeemed_time": "false", "bin_number": "1", "note": "1", "delivered_time": "1", "registered_staff": "12", "tracking_num": "1", "box_number": "1", "recipient": "1", "is_redeemed": "false"}, {"note": "3", "delivered_time": "7", "registered_staff": "5", "is_redeemed": "false", "service": "UPS", "redeemed_time": "false", "tracking_num": "1", "box_number": "6", "recipient": "2", "bin_number": "4"}]
+[
+    {
+    "tracking_num": "1485",
+    "recipient": "Henry Zhong",
+    "box_num": "2333",
 
+    "registered_staff": "guy_1",
+    "registered_time": "2019-02-28 12:00:00",
+    "bin_num": "13",
+    "note": "black envelope",
+
+    "redeemed_status": "Redeemed",
+    "redeemed_staff": "guy_1",
+    "redeemed_time": "2019-03-29 13:00:00",
+
+    "carrier": "USPOSTAL"
+    },
+
+    {
+    "tracking_num": "1234",
+    "recipient": "Harry Dunham",
+    "box_num": "3333",
+
+    "registered_staff": "guy_3",
+    "registered_time": "2019-02-28 12:00:01",
+    "bin_num": "13",
+    "note": "None",
+
+    "redeemed_status": "Redeemed",
+    "redeemed_staff": "guy_2",
+    "redeemed_time": "2019-03-31 13:00:00",
+
+    "carrier": "UPS"
+    },
+
+    {
+   "tracking_num": "2468",
+   "recipient": "Nathan Devereux",
+   "box_num": "5555",
+
+   "registered_staff": "guy_3",
+   "registered_time": "2019-04-01 12:00:00",
+   "bin_num": "13",
+   "note": "None",
+
+   "redeemed_status": "Unredeemed",
+   "redeemed_staff": false,
+   "redeemed_time": false,
+
+   "carrier": "UPS"
+   }
+]

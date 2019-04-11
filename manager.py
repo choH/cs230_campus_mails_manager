@@ -16,6 +16,107 @@ from kivy.clock import mainthread
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty
 import json, requests
+from datetime import datetime
+
+
+
+
+
+
+
+
+class InputScreen(Screen):
+    def submission_func(self):
+        self.ids.status.value = 0
+        selected_carrier = ''
+        carrier_list = [self.ids.USPS, self.ids.Fedex, self.ids.UPS,
+                        self.ids.DHL, self.ids.CAMPUS]
+        for carrier in carrier_list:
+            if carrier.state == 'down':
+                selected_carrier = carrier.text
+
+        if selected_carrier == '':
+            self.popup()
+            return
+        information = {'tracking_num': self.ids.tracking_num.text,
+                        'recipient': self.ids.recipient.text,
+                        'box_num': self.ids.box_number.text,
+                        'registered_staff': self.ids.registered_staff.text,
+                        'registered_time': self.ids.delivered_time.text,
+                        'bin_num': self.ids.bin_number.text,
+                        'note': self.ids.note.text,
+                        'redeemed_status': 'Unredeemed',
+                        'redeemed_staff': 'Unknown',
+                        'redeemed_time': 'Unknown',
+                        'carrier': selected_carrier}
+
+        for json_name, text in information.items():
+            if text == '':
+                self.popup()
+                return
+
+        filename = "registered.data"
+        with open(filename, "r") as copy_file:
+            try:
+                data = json.load(copy_file)
+            except ValueError:
+                data = []
+
+            data.append(information)
+        with open(filename, "w") as json_file:
+            json.dump(data, json_file)
+            json_file.close()
+
+        self.ids.tracking_num.text = ''
+        self.ids.recipient.text = ''
+        self.ids.note.text = ''
+        self.ids.bin_number.text = ''
+        self.ids.box_number.text = ''
+        self.ids.registered_staff.text = ''
+        self.ids.delivered_time.text = ''
+
+
+        for carrier in carrier_list:
+            carrier.state = 'normal'
+
+
+    def popup(self):
+        """
+        This function implements popup widget functionality, whereby should an
+        exception be thrown, a popup will be created to alert the user the
+        error. The user then must acknowledge the popup by clicking the 'Ok'
+        button. This physical instantiation of this includes a general
+        BoxLayout for the entire popup, a Label widget to display the error
+        message, and an 'Ok' button to accept the error.
+
+        :param error_message: The exceptions error message, which will be
+        displayed by the popup.
+        :return: None
+        """
+        content = BoxLayout(orientation='vertical')
+        error_label = Label(text="Please fill all required fields")
+        dismiss_button = Button(text='Ok')
+        content.add_widget(error_label)
+        content.add_widget(dismiss_button)
+        popup = Popup(title='Error', content=content, size_hint=(.3, .25),
+                      auto_dismiss=False)
+        dismiss_button.bind(on_press=popup.dismiss)
+        popup.open()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -169,7 +270,9 @@ class LogScreen(Screen):
         for k, v in entry.items():
             if k == 'tracking_num':
                 continue
-            output_str += k + ': \n' + '                        ' + str(v) + '\n\n'
+            output_str += (k + ': \n'
+                            + '                                                '
+                            + str(v) + '\n\n')
         return output_str
 
 
@@ -180,7 +283,11 @@ class LogScreen(Screen):
             if entry['tracking_num'] == instance.text[12:16]:
                 entry_holder = entry
                 break
-        output_str = 'Tracking #'+instance.text[12:16] + '\n\n\n\n' + self.entry_to_detail_str(entry)
+        output_str = ('------------------------------------------------------------------------------------\n'
+                        + 'Tracking #'+instance.text[12:16]
+                        + '\n\n\n\n'
+                        + self.entry_to_detail_str(entry)
+                        + '------------------------------------------------------------------------------------\n')
         self.ids.details_trigger_button.hinding_text = output_str.center(25)
         self.ids.details_trigger_button.text = 'View #'+instance.text[12:16]+' in Details'
 
@@ -199,9 +306,6 @@ class LogScreen(Screen):
 
 
 
-class InputScreen(Screen):
-    def on_enter(instance):
-        print("entered input screen")
 
 class DetailsScreen(Screen):
     pass

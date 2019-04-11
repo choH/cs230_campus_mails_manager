@@ -19,13 +19,97 @@ ScreenManager:
 
 
 <InputScreen>
-    BoxLayout:
-        orientation: 'vertical'
+    GridLayout:
+        rows: 4
+        id: screen
+        BoxLayout:
+            orientation: 'vertical'
+            id: status_box
+            size_hint_y: 1
+            ProgressBar:
+                id: status
+                value: 0
+                max: 100000000
+        BoxLayout:
+            orientation: 'vertical'
+            cols: 2
+            id: text_box
+            size_hint_y: 18
+            BoxLayout:
+                size_hint_y: 5
+                orientation: 'vertical'
+                TextInput:
+                    id: tracking_num
+                    text: ''
+                    hint_text: 'Tracking Number'
+                TextInput:
+                    id: recipient
+                    text: ''
+                    hint_text: 'Student Name'
+                TextInput:
+                    id: note
+                    text: ''
+                    hint_text: 'Item Description'
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: 2
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: 'left box'
+                    TextInput:
+                        id: bin_number
+                        text: ''
+                        hint_text: 'Bin Number'
+                    TextInput:
+                        id: box_number
+                        text: ''
+                        hint_text: 'Student Box Number'
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: 'right box'
+                    TextInput:
+                        id: registered_staff
+                        text: ''
+                        hint_text: 'Staff ID'
+                    TextInput:
+                        id: delivered_time
+                        text: ''
+                        hint_text: 'Date Received'
+            BoxLayout:
+                id: carriers
+                size_hint_y: 1
+                orientation: 'horizontal'
+                ToggleButton:
+                    id: USPS
+                    text: 'USPOSTAL'
+                    group: 'carriers'
+                ToggleButton:
+                    id: Fedex
+                    text: 'FedEx'
+                    group: 'carriers'
+                ToggleButton:
+                    id: UPS
+                    text: 'UPS'
+                    group: 'carriers'
+                ToggleButton:
+                    id: DHL
+                    text: 'DHL'
+                    group: 'carriers'
+                ToggleButton:
+                    id: CAMPUS
+                    text: 'CAMPUS'
+                    group: 'carriers'
 
-        Label:
-            id: input_screen_label
-            size_hint_y: 24
-            text: 'This is InputScreen'
+
+        BoxLayout:
+            orientation: 'vertical'
+            id: submit_box
+            size_hint_y: 2
+
+            Button:
+                id: submit_button
+                text: 'Submit'
+                on_touch_down: if self.collide_point(*args[1].pos): root.submission_func()
 
         BoxLayout:
             orientation: 'horizontal'

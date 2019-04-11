@@ -6,10 +6,14 @@
 
 ## Broadcasts
 
+### 2019-04-10 | Final scrum meeting (17:00 @Andrews)
+* Everyone should have his parts done by the time of meeting, so that the team can get together, merge three screens into one program and run some test trials.
+* The team should polish this `CHANGELOG.md` file and update the [`README.md`](https://github.com/cs230s19/campus_mails_manager/blob/master/README.md).
+
 ### 2019-04-10 | Change on `registered.data`.
 
 * Values of `tracking_num`, `box_num`, `bin_num` are now in `string` type.
-    * I apologize for editing the most fundamental file at this stage, but I believe by having all values store as `string` would simply the searching implementation (avoid type-check during looping). Also it is more consistent with the nature of all input features, as `TextInput.text` is default to be `string`.
+    * I apologize for editing the most fundamental file at this stage, but I believe by having all values store as `string` would simplify the searching implementation (avoid type-check during looping). Also it is more consistent with the nature of all input features, as `TextInput.text` is default to be `string`.
 * Key `service` is now `carrier` for better description.
 * Key `delivered_time` is now `registered_time` for better description, consistency with `registered_staff`, and not to be confused with the delivery time of the carrier if we will ever do the bar code stuff.
 * `is_redeemed` is now `redeemed_status`. Also, rather than having a boolean value, `redeemed_status` now has alternative values of `"Redeemed"` or `"Unredeemed"` — this make the display output much easier.
@@ -28,6 +32,11 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 
 ---
 ## Scrum Meetings
+
+### 2019-04-10
+* Tried to access widget attributes from another screen in python, mostly failed. Thus we simplify the design for `Details Screen` with a bypass button on `Log Screen`.
+* Merged all three screens together.
+* Adopted the design of having three screen-shift buttons in the bottom bar.
 
 ### 2019-04-09
 * Achieved demo UI for all three screens.
@@ -69,7 +78,21 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 ---
 ## Development Journal
 
+### 2019-04-12, Henry Zhong:
+* **Updated [`README.md`](https://github.com/cs230s19/campus_mails_manager/blob/master/README.md) for Class Presentation**
+    * Purpose of this project
+    * UI Showcase & User Manual.
+    * Vision for future possibilities.
+    * Acknowledgements.
 
+### 2019-04-11, Henry Zhong:
+**The Program is Functional for Demo Trails and Presentation**
+* Merged the actual `Input Screen` and `Details Screen` into the framework.
+* Finished some small adjustments on `Input Screen` code to be compatible with the recently the updated `registered.data` file and screen-jump bottom bar buttons.
+
+### 2019-04-10, Nathan Devereux:
+* **Fully implemented Details Screen.**
+    * Added a button in the Log Screen that calls the function to get the details of a specific package. 
 
 ### 2019-04-10, Henry Zhong:
 **`LogScreen` is now fully functional**
@@ -116,6 +139,3 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 * **Abstract Implementation of the Input Screen.** 
     * This includes basic text inputs and a non-functioning submit button (inputs include: tracking number, current date, bin number, etc.) 
     * This is meant to get a visual understanding of what the input screen should look like.
-### 2019-04-10, Nathan Devereux:
-* **Fully implemented Details Screen.**
-    * Added a button in the Log Screen that calls the function to get the details of a specific package. 
