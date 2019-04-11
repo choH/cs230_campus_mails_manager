@@ -13,19 +13,30 @@ def get_entry(num):
                 return entry
 
 num = '1234'
-app = App.get_running_app()
-app.root.ids.output.text = get_entry('1234')
+# app = App.get_running_app()
+# app.root.ids.current_layout.last_entry()
+
+
 
 class DetailsScreen(Screen):
+    #
+    # def __init__(self):
+    #     super(DetailsScreen, self).__init__(**kwargs)
+    #
+    # # def set_label_text(self):
+    #
+    #
+    def on_enter(self):
+        self.ids.output_label.text = 'something'
+        # entry = get_entry(num)
 
-    def last_entry(self):
-        entry = get_entry(num)
-        self.ids.output.text = entry
+
+
 
     def process_submit(self):
         json_list = ['tracking_num', 'recipient', 'box_num',
-                     'registered_staff', 'delivered_time', 'bin_num',
-                     'note', 'redeemed_staff', 'redeemed time', 'service']
+                     'registered_staff', 'registered_time', 'bin_num',
+                     'note', 'redeemed_staff', 'redeemed time', 'carrier']
         for i in range(0, 10):
             if self.ids.spin.values == self.ids.spin.values[i]:
                 entry = get_entry('1234')
@@ -37,9 +48,9 @@ class DetailsScreen(Screen):
         entry['is_redeemed'] = 'false'
 
 
-class DetailsApp(App):
+class detailsApp(App):
     pass
 
 
 if __name__ == '__main__':
-    DetailsApp().run()
+    detailsApp().run()
