@@ -139,4 +139,3 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 * **Abstract Implementation of the Input Screen.** 
     * This includes basic text inputs and a non-functioning submit button (inputs include: tracking number, current date, bin number, etc.) 
     * This is meant to get a visual understanding of what the input screen should look like.
-
