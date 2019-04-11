@@ -12,18 +12,20 @@ from datetime import datetime
 # Config.set('graphics', 'height', '700')
 
 
-class InputScreen(Screen):
+class Input(Screen):
     def submission_func(self):
-        self.ids.status.value = 0
+        self.ids.status.value = 10
         selected_carrier = ''
         carrier_list = [self.ids.USPS, self.ids.Fedex, self.ids.UPS,
                         self.ids.DHL, self.ids.Other]
         for carrier in carrier_list:
-            if carrier.state == 'down':
+            self.ids.status.value = self.ids.status.value + 1
+            if carrier.background_color == [0, 0, 0, 1]:
                 selected_carrier = carrier.text
 
         if selected_carrier == '':
-            self.popup()
+            self.popup("Please select a mail carrier")
+            self.ids.status.value = 0
             return
         information = {'tracking_num': self.ids.tracking_num.text, 'recipient':
                        self.ids.recipient.text, 'note': self.ids.note.text,
@@ -35,9 +37,11 @@ class InputScreen(Screen):
 
         for json_name, text in information.items():
             if text == '':
-                self.popup()
+                self.popup("Please fill the {} text field".format(json_name))
+                self.ids.status.value = 0
                 return
 
+        self.ids.status.value = self.ids.status.value + 10
         filename = "registered.data"
         with open(filename, "r") as copy_file:
             try:
@@ -46,10 +50,12 @@ class InputScreen(Screen):
                 data = []
 
             data.append(information)
+        self.ids.status.value = self.ids.status.value + 25
         with open(filename, "w") as json_file:
             json.dump(data, json_file)
             json_file.close()
 
+        self.ids.status.value = self.ids.status.value + 25
         self.ids.tracking_num.text = ''
         self.ids.recipient.text = ''
         self.ids.note.text = ''
@@ -58,12 +64,13 @@ class InputScreen(Screen):
         self.ids.registered_staff.text = ''
         self.ids.delivered_time.text = ''
 
+        self.ids.status.value = self.ids.status.value + 20
 
         for carrier in carrier_list:
-            carrier.state = 'normal'
+            self.ids.status.value = self.ids.status.value + 1
+            carrier.background_color = [1, 1, 1, 1]
 
-
-    def popup(self):
+    def popup(self, error_message):
         """
         This function implements popup widget functionality, whereby should an
         exception be thrown, a popup will be created to alert the user the
@@ -77,7 +84,7 @@ class InputScreen(Screen):
         :return: None
         """
         content = BoxLayout(orientation='vertical')
-        error_label = Label(text="Please fill all required fields")
+        error_label = Label(text=error_message)
         dismiss_button = Button(text='Ok')
         content.add_widget(error_label)
         content.add_widget(dismiss_button)
@@ -86,6 +93,16 @@ class InputScreen(Screen):
         dismiss_button.bind(on_press=popup.dismiss)
         popup.open()
 
+    def carrier_func(self, carrier_id):
+        carrier_dict = {1: self.ids.USPS, 2: self.ids.Fedex, 3: self.ids.UPS,
+                        4: self.ids.DHL, 5: self.ids.Other}
+        id = carrier_dict[carrier_id]
+        if id.background_color == [0, 0, 0, 1]:
+            id.background_color = [1, 1, 1, 1]
+        else:
+            for index in carrier_dict:
+                carrier_dict[index].background_color = [1, 1, 1, 1]
+            id.background_color = [0, 0, 0, 1]
 
 
 
