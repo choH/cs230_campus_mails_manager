@@ -40,7 +40,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 
 ### 2019-04-09
 * Achieved demo UI for all three screens.
-* The task of interacting with JSON must be postponed due to unforeseen amount of work. 
+* The task of interacting with JSON must be postponed due to unforeseen amount of work.
 * Discuss the possibility of editing `registered.data`.
 
 ### 2019-04-06
@@ -61,7 +61,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
         * Display the details of selected entry base on `registered.data`.
         * Edit the selected entry.
         * A `Back Button`.
-        
+
 ### 2019-04-04
 * Created [GitHub repo](https://github.com/cs230s19/campus_mails_manager) with necessary files.
 * Updated the [`registered.data`](https://github.com/cs230s19/campus_mails_manager/blob/master/registered.data) with test trials in `JSON` format.
@@ -73,12 +73,17 @@ Everyone are expected to have a screen with fully functional UI and be able to i
     * Nathan: `Details Screen`
 * Set the output resolution to be a mimic of iPhone XS, as for `2436 * 1125`.
 
- 
- 
+
+
 ---
 ## Development Journal
 
-### 2019-04-12, Henry Zhong:
+### 2019-04-11, Henry Zhong:
+
+* **Bug fixed on filter deselection**
+    * When two or more filters are triggered, it is ineffective to deselect any perviously triggered filters — as for a deselected filter may still remain effective although the button has visually adjusted itself to `normal` state. Now the bug has been fixed.
+
+### 2019-04-11, Henry Zhong:
 * **Updated [`README.md`](https://github.com/cs230s19/campus_mails_manager/blob/master/README.md) for Class Presentation**
     * Purpose of this project
     * UI Showcase & User Manual.
@@ -92,7 +97,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 
 ### 2019-04-10, Nathan Devereux:
 * **Fully implemented Details Screen.**
-    * Added a button in the Log Screen that calls the function to get the details of a specific package. 
+    * Added a button in the Log Screen that calls the function to get the details of a specific package.
 
 ### 2019-04-10, Henry Zhong:
 **`LogScreen` is now fully functional**
@@ -126,7 +131,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 
 ### 2019-04-08, Harry Dunham:
 * **Mail Carrier Implementation.**
-    * Fixed the carrier implementation so that whenever one carrier is selected all the other carriers are deselected. 
+    * Fixed the carrier implementation so that whenever one carrier is selected all the other carriers are deselected.
     * Additionally if the user selects the currently selected carrier it will deselect that carrier.
 
 ### 2019-04-07, Henry Zhong:
@@ -136,6 +141,7 @@ Everyone are expected to have a screen with fully functional UI and be able to i
 
 ### 2019-04-06, Harry Dunham:
 
-* **Abstract Implementation of the Input Screen.** 
-    * This includes basic text inputs and a non-functioning submit button (inputs include: tracking number, current date, bin number, etc.) 
+* **Abstract Implementation of the Input Screen.**
+    * This includes basic text inputs and a non-functioning submit button (inputs include: tracking number, current date, bin number, etc.)
     * This is meant to get a visual understanding of what the input screen should look like.
+
